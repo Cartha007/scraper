@@ -75,7 +75,7 @@ def getProductInfo(url):
         print(f'Product Title: {pTitle_text}')
         print(f'Price: {pPrice_text}')
         print(f'Availability: {availability_text}')
-        print(f'Rating: {pRating} ({pTotalRating_text})')
+        print(f'Rating: {pRating_text} ({pTotalRating_text})')
         print(f'Delivery: {pDelivery_text}')
         print(f'{pDeliverTo_text}')
         print(f'Shipping: {pShipFee_text} \n')

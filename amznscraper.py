@@ -94,10 +94,6 @@ def main():
     
     # url = "https://www.amazon.com/s?k=monitor&crid=3FVHM69NCLXFG&sprefix=mo%2Caps%2C1745&ref=nb_sb_noss_2"
 
-    import requests
-
-    
-
 
 if __name__ == '__main__':
     # print('Starting script...')

@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
-import requests
-import sys
+import requests, sys, json, csv
 
 
 def check_internet_connection():
@@ -41,44 +40,45 @@ def getProductInfo(url):
         # print(new_soup)
         
         #Title
-        pTitle = new_soup.find('span', attrs={'id': 'productTitle'}).text.strip()
-        # print(pTitle)
+        pTitle = new_soup.find('span', attrs={'id': 'productTitle'})
+        pTitle_text = pTitle.text.strip() if pTitle else None
         
         #Price
         pPrice = new_soup.find('div', attrs={'id': 'corePrice_feature_div'})
-        pPrice = pPrice.find('span', attrs={'class', 'a-offscreen'}).text.strip()
-        # print(pPrice)
-        
+        pPrice = pPrice.find('span', attrs={'class', 'a-offscreen'}) if pPrice else None
+        pPrice_text = pPrice.text.strip() if pPrice else None
+                
         #Ratings
-        pRating = new_soup.find('span', attrs={'class': 'a-icon-alt'}).text.strip()
-        # print(pRating)
+        pRating = new_soup.find('span', attrs={'class': 'a-icon-alt'})
+        pRating_text = pRating.text.strip() if pRating else None
         
         #Number of ratings
-        pTotalRating = new_soup.find('span', attrs={'id': 'acrCustomerReviewText'}).text.strip()
-        # print(pTotalRating)
+        pTotalRating = new_soup.find('span', attrs={'id': 'acrCustomerReviewText'})
+        pTotalRating_text = pTotalRating.text.strip() if pTotalRating else None
         
         # Delivery date
-        pDelivery = new_soup.find('div', attrs={'id': 'mir-layout-DELIVERY_BLOCK'}).text.strip() #deliveryBlockContainer
-        # print(pDelivery)
-        pDeliverTo = new_soup.find('div', attrs={'id': 'deliveryBlockContainer'}).find('a', attrs={'class': 'a-link-normal'}).text.strip()
-        # print(pDeliverTo)
+        pDelivery = new_soup.find('div', attrs={'id': 'mir-layout-DELIVERY_BLOCK'})
+        pDelivery_text = pDelivery.text.strip() if pDelivery else None #deliveryBlockContainer
+        
+        pDeliverTo = new_soup.find('div', attrs={'id': 'deliveryBlockContainer'}).find('a', attrs={'class': 'a-link-normal'})
+        pDeliverTo_text = pDeliverTo.text.strip() if pDeliverTo else None
         
         # Shipping month
-        pShipFee = new_soup.find('span', attrs={'class': 'a-size-base a-color-secondary'}).text.strip()
-        # print(pShipFee)
+        pShipFee = new_soup.find('span', attrs={'class': 'a-size-base a-color-secondary'})
+        pShipFee_text = pShipFee.text.strip() if pShipFee else None
         
         #Availability
-        availability = new_soup.find('div', attrs={'id': 'availability'}).text.strip()
-        # print(availability)
+        availability = new_soup.find('div', attrs={'id': 'availability'})
+        availability_text = availability.text.strip() if availability else None
         
         print('\n')
-        print(f'Product Title: {pTitle}')
-        print(f'Price: {pPrice}')
-        print(f'Availability: {availability}')
-        print(f'Rating: {pRating} ({pTotalRating})')
-        print(f'Delivery: {pDelivery}')
-        print(f'{pDeliverTo}')
-        print(f'Shipping: {pShipFee} \n')
+        print(f'Product Title: {pTitle_text}')
+        print(f'Price: {pPrice_text}')
+        print(f'Availability: {availability_text}')
+        print(f'Rating: {pRating} ({pTotalRating_text})')
+        print(f'Delivery: {pDelivery_text}')
+        print(f'{pDeliverTo_text}')
+        print(f'Shipping: {pShipFee_text} \n')
     
 
 def main():

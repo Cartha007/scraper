@@ -21,7 +21,9 @@ def getProductInfo(url):
     # HTTP Request
     webpage = requests.get(url, headers=HEADERS).text
     # print(webpage) # Check the request status without the .text
-    soup = BeautifulSoup(webpage, 'html.parser')
+    
+    # soup = BeautifulSoup(webpage, 'html.parser')
+    soup = BeautifulSoup(webpage, 'lxml')
     # print(soup)
     
     # Fetch links as list of Tag Objects
@@ -98,5 +100,8 @@ def main():
 if __name__ == '__main__':
     # print('Starting script...')
     check_internet_connection()
-    main()
-    print('Script ended.')
+    try:
+        main()
+        print('Script ended.')
+    except Exception as e:
+        print(e)

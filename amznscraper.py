@@ -102,6 +102,9 @@ if __name__ == '__main__':
     check_internet_connection()
     try:
         main()
-        print('Script ended.')
+    except KeyboardInterrupt:
+        pass
     except Exception as e:
         print(e)
+    finally:
+        print('Script ended.')

@@ -3,6 +3,7 @@
 This repository contains web scrapers for various websites.
 
 - [Amazon Scraper Documentation](#amazon-scraper-documentation)
+- [TimesJob Scraper Documentation](#timesjob-scraper-documentation)
 
 ## Amazon Scraper Documentation <a name="amazon-scraper-documentation"></a>
 **Filename**: `amznscraper.py`
@@ -45,6 +46,8 @@ python amznscraper.py
 ```shell
 pip install lxml
 ```
+
+## TimesJob Scraper Documentation <a name="timesjob-scraper-documentation"></a>
 
 ## Author
 - [Cartha007](www.github.com/Cartha007)

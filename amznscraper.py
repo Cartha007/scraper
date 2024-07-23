@@ -88,8 +88,7 @@ def main():
     print('Enter your keyword to search for')
     search = input('>').split(" ")
     main_url = "https://www.amazon.com/s?k="
-    for i in range(len(search)):
-        main_url += search[i] + '+'
+    main_url += '+'.join(search)
     
     print('Searching for products, please wait...')
     getProductInfo(main_url)

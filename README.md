@@ -17,7 +17,7 @@ The Amazon Scraper is a Python script designed to search for products on Amazon 
    Clone the Amazon Scraper repository to your local machine:
 
    ```shell
-   git clone <repository_url>
+   git clone <https://github.com/Cartha007/scraper.git>
    cd amazon-scraper
    ```
 
